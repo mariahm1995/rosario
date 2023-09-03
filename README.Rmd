@@ -1,7 +1,6 @@
-<!-- # --- -->
+---
 output: github_document
 ---
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
@@ -18,21 +17,72 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rosario is to ...
+This R package implements two common measures of overlap in resource use for communities. We implement the Pianka (Pianka 1973) and Czekanowski indices (Feinsinger, Spears, & Poole 1981).
+
+
+We implement the Pianka's index of overlap as:
+
+$$
+\alpha_{j, k} = \frac{ \sum_{i = 1}^{n}p_{ij}p_{ik} }{\sqrt{} \sum_{i = 1}^{n}p_{ij}^2 * \sum_{i = 1}^{n} p_{ik}^2 }
+$$
+As well as the Czekanowski index of overlap.
+$$
+\alpha_{j, k} = 1 -\frac{1}{2}\Big(\sum_{i = 1}^{n} |p_{ij} - p_{ik}| \Big)
+$$
+
+
 
 ## Installation
 
-You can install the development version of rosario like so:
+You can install the development version of rosario hosted in github:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("alrobles/rosario")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+In this case of  use we  create a simulated community with 20 species and 300 time intervales. With a Poisson distribution.
+We rescale to get que relative frequency of time counts and
+get both distance
+
 
 ```{r example}
 library(rosario)
 ## basic example code
+n = 20
+k = 300
+#create random matrix
+m = matrix(rpois(n*k, 10), ncol = k)
+
+
+# rescale with sum of rows
+freqs <- scale(t(m), center = FALSE, 
+               scale = rowSums(m))
+# transpose
+m <- t(freqs)
+
+# load rosario R package
+library(rosario)
+
+# measure the overlap matrix with Pianka's method
+overlap_pianka <- temp_overlap(m, method = "pianka")
+
+# measure the overlap matrix with Czekanowski method
+overlap_czekanowski <- temp_overlap(m, method = "czekanowski")
 ```
+
+We can observe the first 6 rows between species:
+
+```{r}
+overlap_pianka[1:6, 1:6]
+```
+
+
+And for the second example:
+
+```{r}
+overlap_czekanowski[1:6, 1:6]
+```
+
+
