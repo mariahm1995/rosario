@@ -4,9 +4,9 @@
 #' @param numvec A numeric vector. This function is designed to deal with
 #' the randomization
 #' time series of animal activity
-#' @param x
+#' @param x The new starting position of the permutation
 #'
-#' @return
+#' @return A permuted vector
 #' @export
 #'
 #' @examples vec_permutation(1:24, 4)
