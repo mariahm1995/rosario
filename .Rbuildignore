@@ -5,3 +5,5 @@
 ^data-raw$
 ^pubkey\.pub$
 ^pubkey\.pub\.pub$
+^_pkgdown\.yml$
+^docs$
