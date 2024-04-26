@@ -13,3 +13,4 @@ RoxygenNote: 7.2.3
 Imports: 
     magrittr,
     purrr
+URL: https://alrobles.github.io/rosario/

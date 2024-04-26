@@ -7,3 +7,5 @@
 ^pubkey\.pub\.pub$
 ^_pkgdown\.yml$
 ^docs$
+^pkgdown$
+^\.github$
