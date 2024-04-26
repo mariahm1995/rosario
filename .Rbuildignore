@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
+^data-raw$
+^pubkey\.pub$
+^pubkey\.pub\.pub$

@@ -2,3 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+pubkey.pub
+pubkey.pub.pub
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
