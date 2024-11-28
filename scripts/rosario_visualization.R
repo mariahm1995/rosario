@@ -22,7 +22,7 @@ rosario_visualization <- function(rosario_model, row){
   for (i in 1:time_n) {
     rosario_model[[row]][[i]]
     plot_data <- as.data.frame(t(rosario_model[[row]][[i]]))
-    plot_data$names <- rownames(plot_data)
+    plot_data$names <- 1:length(rosario_model[[1]])
     set <- ggplot(data = plot_data, aes(y = set, x = names)) + 
       geom_bar(stat="identity") + theme_light() + 
       theme(axis.title = element_blank(), axis.text = element_blank())
