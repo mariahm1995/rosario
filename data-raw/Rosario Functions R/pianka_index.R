@@ -1,4 +1,4 @@
-#' Czekanowski index for overlap in resource use between two species.
+#' Pianka's index
 #'
 #' @param p A vector of relative frequence of activity pattern.
 #' @param q A vector of relative frequence of activity pattern.
@@ -7,12 +7,12 @@
 #' @export
 #'
 #' @examples
-#' n = 6
+#' n = 100
 #' p = ifelse(runif(n) > 0.5, 1, 0)
-#' p <- p/sum(p)
 #' q = ifelse(runif(n) > 0.5, 1, 0)
-#' q <- q/sum(q)
-#' czekanowski_index(p, q)
-czekanowski_index <- function(p, q){
-  1 - 0.5*sum(abs(p - q))
+#' pianka_index(p, q)
+
+pianka_index <- function(p, q){
+  sum(p*q)/sqrt(sum(p^2)*sum(q^2))
 }
+

@@ -65,6 +65,9 @@ m <- t(freqs)
 # load rosario R package
 library(rosario)
 
+m_overlap <- temp_overlap_matrix(m, method = "pianka")
+m_overlap_df <- temp_overlap_df(m_overlap)
+
 # measure the overlap matrix with Pianka's method
 overlap_pianka <- temp_overlap(m, method = "pianka")
 
@@ -75,7 +78,7 @@ overlap_czekanowski <- temp_overlap(m, method = "czekanowski")
 We can observe the first 6 rows between species:
 
 ```{r}
-overlap_pianka[1:6, 1:6]
+overlap_pianka
 ```
 
 

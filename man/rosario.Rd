@@ -4,7 +4,7 @@
 \alias{rosario}
 \title{rosario}
 \usage{
-rosario(numvec)
+rosario(mat)
 }
 \arguments{
 \item{numvec}{A numeric vector with activity pattern time series}

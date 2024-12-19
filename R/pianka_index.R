@@ -13,5 +13,8 @@
 #' pianka_index(p, q)
 
 pianka_index <- function(p, q){
-  sum(p * q)/sqrt(sum(p^2 * q^2))
+  #sum(p * q)/sqrt(sum(p^2 * q^2))
+  sum_pq <- sum(p*q)
+  sum_sqrt <- sqrt(sum(p^2)*sum(q^2))
+  sum_pq/sum_sqrt
 }

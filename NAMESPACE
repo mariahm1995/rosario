@@ -2,8 +2,13 @@
 
 export("%>%")
 export(czekanowski_index)
+export(get_null_model)
 export(pianka_index)
+export(rescale_matrix)
 export(rosario)
+export(rosario_sample)
 export(temp_overlap)
+export(temp_overlap_df)
+export(temp_overlap_matrix)
 export(vec_permutation)
 importFrom(magrittr,"%>%")

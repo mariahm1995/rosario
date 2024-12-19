@@ -18,8 +18,10 @@ An index value of overlap resource use.
 Czekanowski index for overlap in resource use between two species.
 }
 \examples{
-n = 100
+n = 6
 p = ifelse(runif(n) > 0.5, 1, 0)
+p <- p/sum(p)
 q = ifelse(runif(n) > 0.5, 1, 0)
+q <- q/sum(q)
 czekanowski_index(p, q)
 }

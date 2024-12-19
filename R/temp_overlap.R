@@ -3,50 +3,35 @@
 #' @param mat A matrix with species per time columns.
 #' @param method A measure of temporal niche overlap between pairs of species
 #'
-#' @return A matrix with pairwise overlaping temporal resource use.
+#' @return The mean temporal overlaping index from a pairwise distance matrix
 #' @export
 #'
 #' @examples
-#' n = 200
-#' k = 200
-#' m = matrix(ifelse(runif(n*k) > 0.5, 1, 0), ncol = k)
-#' temp_overlap(m, method = "pianka")
-#' temp_overlap(m, method = "czekanowski")
+#' temp_overlap(ex1, method = "pianka")
+#' ex1_rescale <- rescale_matrix(ex1)
+#' temp_overlap(ex1_rescale, method = "czekanowski")
 
 temp_overlap <- function(mat, method = c("pianka", "czekanowski")) {
 
+
+  if(is.data.frame(mat)){
+    mat <- as.matrix(mat)
+  }
+
+  flag <- Map(is.numeric, mat ) |> unlist() |> all()
+  if(!flag){
+    stop("The input matrix is not numeric")
+  }
+
   method <- match.arg(method)
-
-
-  res = matrix(0, nrow(mat), nrow(mat))
-
-  if(is.null(method)){
-    warning("No method provided. Pianka method by default")
-    method = "pianka"
-  }
-
-
-  if(method == "pianka"){
-    for (i in 1:(nrow(mat) - 1)) {
-      for (j in (i+1):nrow(mat)) {
-        d = pianka_index(mat[i,], mat[j,])
-        res[j,i] = d
-        res[i,j] = d
-      }
-    }
-
-  }
-
   if(method == "czekanowski"){
-    for (i in 1:(nrow(mat) - 1)) {
-      for (j in (i+1):nrow(mat)) {
-        d = czekanowski_index(mat[i,], mat[j,])
-        res[j,i] = d
-        res[i,j] = d
-      }
-    }
-
+    mat <- rescale_matrix(mat)
   }
 
-  res
+  mat <- temp_overlap_matrix(mat, method = method)
+
+  df <- temp_overlap_df(mat)
+  index <- mean(df[["distance"]], na.rm = TRUE)
+  names(index) <- class(mat)[1]
+  index
 }
