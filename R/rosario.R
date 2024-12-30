@@ -27,6 +27,7 @@ rosario <- function(numvec){
 #' @export
 #'
 #' @examples rosario_sample(ex1)
+
 rosario_sample <- function(mat){
   res <-  matrix(data = 0, nrow = nrow(mat), ncol = ncol(mat) )
   ncol_mat <- ncol(mat)

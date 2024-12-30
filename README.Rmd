@@ -50,18 +50,16 @@ get both distance
 ```{r example}
 library(rosario)
 ## basic example code
-n = 20
-k = 300
+n = 200
+k = 1440
 #create random matrix
 m = matrix(rpois(n*k, 10), ncol = k)
 
 
 # rescale with sum of rows
-freqs <- scale(t(m), center = FALSE, 
-               scale = rowSums(m))
-# transpose
-m <- t(freqs)
+m <- rosario::rescale_matrix(m)
 
+nm <- rosario::get_null_model(m, "pianka")
 # load rosario R package
 library(rosario)
 
@@ -82,10 +80,10 @@ overlap_pianka
 ```
 
 
-And for the second example:
+<!-- And for the second example: -->
 
-```{r}
-overlap_czekanowski[1:6, 1:6]
+<!-- ```{r} -->
+<!-- overlap_czekanowski[1:6, 1:6] -->
 ```
 
 
