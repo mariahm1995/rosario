@@ -1,0 +1,28 @@
+Package: rosario
+Title: An Algorithm to Analyze Cyclical Data
+Version: 0.0.0.9000
+Authors@R: 
+    person("Ángel L.", "Robles-Fernández", , "maria.h.m_1995@tamu.edu", role = c("aut"))
+    person("Maria A.", "Hurtado-Materon", , "maria.h.m_1995@tamu.edu", role = c("aut"))
+    person("Tatiana", "Velásquez-Roa", , "maria.h.m_1995@tamu.edu", role = c("aut"))
+    person("Iván", "Castro-Arellano", , "maria.h.m_1995@tamu.edu", role = c("ths", "cre"))
+Description: Provides tools to quantify and visualize temporal niche overlap
+    among biological identities (species, populations, or other units) using
+    indices (Pianka, Czekanowski) and null models. The package implements the
+    ROSARIO algorithm (Castro-Arellano et al. 2010).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    broom,
+    magrittr,
+    mcreplicate,
+    purrr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Depends: 
+    R (>= 3.5)
+LazyData: true
