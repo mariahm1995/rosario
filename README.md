@@ -27,7 +27,7 @@ devtools::install_github("mariahm1995/rosario")
 You can also get the official release version from CRAN
 
 ``` r
-install.packages("commecometrics")
+install.packages("rosario")
 ```
 
 ## Example
