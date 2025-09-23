@@ -33,6 +33,10 @@
 #' @examples
 #' get_null_model(ex1, method = "pianka", nsim = 10, parallel = FALSE)
 #' @seealso [temp_overlap()], [rosario_sample()], [temp_overlap_matrix()]
+#'
+#' @importFrom furrr future_map_dfr furrr_options
+#' @importFrom future plan multisession
+#'
 #' @export
 get_null_model <- function(mat, method, nsim = 1000, parallel = FALSE) {
 
@@ -45,10 +49,8 @@ get_null_model <- function(mat, method, nsim = 1000, parallel = FALSE) {
   f <- function() rosario::temp_overlap(rosario::rosario_sample(mat), method)
 
   if(parallel){
-    #res <- mcreplicate::mc_replicate(1000, f())
     future::plan(strategy = "multisession")
     res <- furrr::future_map_dfr(1:nsim, \(x) f(), .options = furrr::furrr_options(seed = TRUE))
-    #res <- get(mat, envir = .GlobalEnv)
   } else {
     res <- purrr::map_dfr(1:nsim, \(x) f(), .progress = TRUE )
 

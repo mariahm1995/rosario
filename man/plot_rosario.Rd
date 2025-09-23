@@ -33,4 +33,5 @@ and its mirror image shown in dark red.
 \examples{
 one <- c(0,5,0,7,5,13,70,0)
 plot_rosario(one, cols = 4)
+
 }

@@ -22,6 +22,9 @@
 #' @examples
 #' one <- c(0,5,0,7,5,13,70,0)
 #' plot_rosario(one, cols = 4)
+#'
+#' @importFrom graphics par barplot axis box mtext
+#'
 #' @export
 plot_rosario <- function(numvec, normalize = TRUE, cols = 4) {
   stopifnot(is.numeric(numvec), length(numvec) > 1)

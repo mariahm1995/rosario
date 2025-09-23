@@ -14,8 +14,9 @@ RoxygenNote: 7.3.2
 Imports: 
     broom,
     magrittr,
-    mcreplicate,
-    purrr
+    purrr,
+    furrr,
+    future
 Suggests: 
     knitr,
     rmarkdown
