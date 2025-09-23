@@ -2,18 +2,18 @@
 % Please edit documentation in R/plot_rosario.R
 \name{plot_rosario}
 \alias{plot_rosario}
-\title{Diagram of ROSARIO null-model patterns}
+\title{Diagram of ROSARIO null-model randomizations}
 \usage{
 plot_rosario(numvec, normalize = TRUE, cols = 4)
 }
 \arguments{
-\item{numvec}{Numeric vector representing a single biological identity' activity across
-ordered time intervals.}
+\item{numvec}{Numeric vector representing a single biological identity'
+distribution across ordered time intervals.}
 
 \item{normalize}{Logical; if TRUE (default) scale each half to sum to 1
 (compare shapes, not totals).}
 
-\item{cols}{Integer; number of panels (hypothetical patterns) per row.}
+\item{cols}{Integer; number of panels (hypothetical distributions) per row.}
 }
 \value{
 Invisibly, a list with:
@@ -25,9 +25,9 @@ Invisibly, a list with:
 }
 }
 \description{
-Visualizes the first 10 hypothetical temporal patterns produced by
+Visualizes the first 10 hypothetical time use distributions produced by
 \code{\link[=rosario]{rosario()}} for a single biological identity. Each panel displays one
-hypothetical temporal pattern with its cyclic shift shown in dark gray
+hypothetical time use distribution with its cyclic shift shown in dark gray
 and its mirror image shown in dark red.
 }
 \examples{

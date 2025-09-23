@@ -1,6 +1,6 @@
-#' Null-model test via ROSARIO-style randomization
+#' Null-model test via ROSARIO algorithm randomization
 #'
-#' Generates a null distribution of assemblage-wide temporal niche overlap by
+#' Generates a null distribution of concurrent temporal niche overlap by
 #' repeatedly randomizing the input matrix with [rosario_sample()] and
 #' recomputing the mean pairwise overlap (see [temp_overlap()]).
 #'
@@ -13,7 +13,7 @@
 #'
 #' @return A list with components:
 #' \describe{
-#'   \item{observed_niche_overlap}{Mean pairwise overlap for `mat`.}
+#'   \item{observed_niche_overlap}{Mean from all possible pairwise comparisons among biological identities for `mat`.}
 #'   \item{p_value}{A one-sample `t.test` object comparing null means to the
 #'     observed value (mu = observed).}
 #'   \item{null_niche_overlap}{A tibble/data.frame of simulated mean overlaps
@@ -34,7 +34,7 @@
 #' get_null_model(ex1, method = "pianka", nsim = 10, parallel = FALSE)
 #' @seealso [temp_overlap()], [rosario_sample()], [temp_overlap_matrix()]
 #' @export
-get_null_model <- function(mat, method, nsim = 100, parallel = FALSE) {
+get_null_model <- function(mat, method, nsim = 1000, parallel = FALSE) {
 
   if(method == "czekanowski"){
     mat <- rosario::rescale_matrix(mat)

@@ -5,9 +5,11 @@
 #' \deqn{1 - \tfrac{1}{2}\sum_i |p_i - q_i|.}
 #'
 #' @param p Numeric vector of non-negative relative frequencies (typically
-#'   sums to 1) describing the first species' activity across ordered time bins.
+#'   sums to 1) describing the first biological identity data (e.g. activity,
+#'   population size, etc) across ordered time bins. Standardized use of time
+#'   intervals through the manual.
 #' @param q Numeric vector of non-negative relative frequencies (same length
-#'   as `p`) for the second species.
+#'   as `p`) for the second biological identity across ordered time bins.
 #'
 #' @return A single numeric value in \[0, 1\] where 0 indicates no overlap and
 #'   1 indicates identical profiles.

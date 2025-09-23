@@ -8,10 +8,12 @@ czekanowski_index(p, q)
 }
 \arguments{
 \item{p}{Numeric vector of non-negative relative frequencies (typically
-sums to 1) describing the first species' activity across ordered time bins.}
+sums to 1) describing the first biological identity data (e.g. activity,
+population size, etc) across ordered time bins. Standardized use of time
+intervals through the manual.}
 
 \item{q}{Numeric vector of non-negative relative frequencies (same length
-as \code{p}) for the second species.}
+as \code{p}) for the second biological identity across ordered time bins.}
 }
 \value{
 A single numeric value in [0, 1] where 0 indicates no overlap and

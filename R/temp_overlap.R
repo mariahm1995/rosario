@@ -1,7 +1,7 @@
-#' Mean assemblage-wide temporal niche overlap
+#' Mean concurrent temporal niche overlap
 #'
-#' Computes the **mean** of all pairwise overlaps among rows (species) using
-#' the chosen index.
+#' Computes the **mean** of all pairwise overlaps among rows (biological
+#' identities) using the chosen index.
 #'
 #' @param mat Numeric matrix (rows = biological identities, columns = ordered time intervals).
 #' @param method Overlap index to use: `"pianka"` or `"czekanowski"`.

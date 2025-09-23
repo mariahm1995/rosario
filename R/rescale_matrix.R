@@ -3,8 +3,8 @@
 #' Divides each row by its row sum so that every row sums to 1 (leaving
 #' dimnames intact).
 #'
-#' @param m Numeric matrix; rows are biological identities, columns are time bins
-#'   (or resources).
+#' @param m Numeric matrix; rows are biological identities, columns are time
+#'  bins (i.e., time resources).
 #'
 #' @return A numeric matrix of the same dimension with each row summing to 1.
 #'   Rows with a zero sum are left unchanged (resulting in `NaN` if present).

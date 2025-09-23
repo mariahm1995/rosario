@@ -5,9 +5,11 @@
 #' \deqn{\frac{\sum_i p_i q_i}{\sqrt{\left(\sum_i p_i^2\right)\left(\sum_i q_i^2\right)}}.}
 #'
 #' @param p Numeric vector of non-negative values (counts or relative
-#'   frequencies) for species 1 across ordered time bins.
-#' @param q Numeric vector of non-negative values (same length as `p`) for
-#'   species 2.
+#'   frequencies) for the first biological identity data 1 (e.g. activity,
+#'   population size, etc) across ordered time bins.
+#' @param q Numeric vector of non-negative values (same length as `p`) for the
+#' second biological identity (e.g. activity, population size, etc)
+#' across ordered time bins.
 #'
 #' @return A single numeric value in \[0, 1\]; larger values indicate greater
 #'   overlap.

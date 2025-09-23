@@ -1,6 +1,6 @@
 #' Example temporal activity dataset
 #'
-#' A toy dataset of 5 biological identities across 12 time intervals. Values
+#' An example dataset of 5 biological identities across 12 time intervals. Values
 #' represent counts of activity events (e.g., detections or captures) per
 #' interval. This dataset is provided for examples and vignettes.
 #'

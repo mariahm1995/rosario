@@ -2,7 +2,7 @@
 % Please edit documentation in R/temp_overlap.R
 \name{temp_overlap}
 \alias{temp_overlap}
-\title{Mean assemblage-wide temporal niche overlap}
+\title{Mean concurrent temporal niche overlap}
 \usage{
 temp_overlap(mat, method = c("pianka", "czekanowski"))
 }
@@ -16,8 +16,8 @@ A single numeric value (named by the method) equal to the mean of
 the lower triangle of the pairwise overlap matrix.
 }
 \description{
-Computes the \strong{mean} of all pairwise overlaps among rows (species) using
-the chosen index.
+Computes the \strong{mean} of all pairwise overlaps among rows (biological
+identities) using the chosen index.
 }
 \details{
 For \code{"czekanowski"}, rows are automatically rescaled to proportions.

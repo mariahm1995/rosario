@@ -1,15 +1,15 @@
-#' Diagram of ROSARIO null-model patterns
+#' Diagram of ROSARIO null-model randomizations
 #'
-#' Visualizes the first 10 hypothetical temporal patterns produced by
+#' Visualizes the first 10 hypothetical time use distributions produced by
 #' [rosario()] for a single biological identity. Each panel displays one
-#' hypothetical temporal pattern with its cyclic shift shown in dark gray
+#' hypothetical time use distribution with its cyclic shift shown in dark gray
 #' and its mirror image shown in dark red.
 #'
-#' @param numvec Numeric vector representing a single biological identity' activity across
-#'   ordered time intervals.
+#' @param numvec Numeric vector representing a single biological identity'
+#'  distribution across ordered time intervals.
 #' @param normalize Logical; if TRUE (default) scale each half to sum to 1
 #'   (compare shapes, not totals).
-#' @param cols Integer; number of panels (hypothetical patterns) per row.
+#' @param cols Integer; number of panels (hypothetical distributions) per row.
 #'
 #' @return Invisibly, a list with:
 #' \itemize{

@@ -7,17 +7,18 @@
 rosario(numvec)
 }
 \arguments{
-\item{numvec}{Numeric vector representing a single biological identity' activity across
-ordered time intervals.}
+\item{numvec}{Numeric vector representing a single biological identity'
+distributions across ordered time intervals.}
 }
 \value{
 A list of numeric vectors with all the permutations in the time series,
-including the mirror patterns,
+including the mirror patterns.
 }
 \description{
-For a numeric activity vector, creates the set of cyclic shifts and their
+For a numeric vector, creates the set of cyclic shifts and their
 mirror images (reverse order), preserving shape but changing location along
-the cycle.
+the cycle. The suite of vectors and mirrors represent a complete set
+of possible distributions.
 }
 \examples{
 rosario(c(40, 25, 18, 10, 5, 2))

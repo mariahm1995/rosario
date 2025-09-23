@@ -8,10 +8,12 @@ pianka_index(p, q)
 }
 \arguments{
 \item{p}{Numeric vector of non-negative values (counts or relative
-frequencies) for species 1 across ordered time bins.}
+frequencies) for the first biological identity data 1 (e.g. activity,
+population size, etc) across ordered time bins.}
 
-\item{q}{Numeric vector of non-negative values (same length as \code{p}) for
-species 2.}
+\item{q}{Numeric vector of non-negative values (same length as \code{p}) for the
+second biological identity (e.g. activity, population size, etc)
+across ordered time bins.}
 }
 \value{
 A single numeric value in [0, 1]; larger values indicate greater

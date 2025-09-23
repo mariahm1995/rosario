@@ -1,14 +1,15 @@
 #' Generate cyclic and mirrored permutations of a time series
 #'
-#' For a numeric activity vector, creates the set of cyclic shifts and their
+#' For a numeric vector, creates the set of cyclic shifts and their
 #' mirror images (reverse order), preserving shape but changing location along
-#' the cycle.
+#' the cycle. The suite of vectors and mirrors represent a complete set
+#'  of possible distributions.
 #'
-#' @param numvec Numeric vector representing a single biological identity' activity across
-#'   ordered time intervals.
+#' @param numvec Numeric vector representing a single biological identity'
+#' distributions across ordered time intervals.
 #'
 #' @return A list of numeric vectors with all the permutations in the time series,
-#' including the mirror patterns,
+#' including the mirror patterns.
 #' @examples
 #' rosario(c(40, 25, 18, 10, 5, 2))
 #' @seealso [vec_permutation()], [rosario_sample()]
@@ -24,12 +25,12 @@ rosario <- function(numvec){
 #' ROSARIO randomization of an assemblage matrix
 #'
 #' Randomly permutes each row by a uniform cyclic shift of its columns and,
-#' with probability 0.5, reverses the order (mirror image). This preserves each
-#' species' temporal autocorrelation and niche breadth while randomizing
-#' location within the cycle.
+#' with probability 0.5, reverses the order (mirror image). This kind of
+#' permutations preserves each biological identity's temporal autocorrelation
+#' structure and niche breadth while randomizing location within the cycle.
 #'
-#' @param mat Numeric matrix with species in rows and ordered time intervals in
-#'   columns.
+#' @param mat Numeric matrix with biological identities in rows and ordered
+#' time intervals in columns.
 #'
 #' @return A numeric matrix of the same dimension as `mat`, randomized row-wise.
 #' @examples

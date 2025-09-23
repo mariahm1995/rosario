@@ -7,8 +7,8 @@
 rescale_matrix(m)
 }
 \arguments{
-\item{m}{Numeric matrix; rows are biological identities, columns are time bins
-(or resources).}
+\item{m}{Numeric matrix; rows are biological identities, columns are time
+bins (i.e., time resources).}
 }
 \value{
 A numeric matrix of the same dimension with each row summing to 1.

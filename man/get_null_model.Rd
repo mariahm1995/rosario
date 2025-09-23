@@ -2,9 +2,9 @@
 % Please edit documentation in R/get_null_model.R
 \name{get_null_model}
 \alias{get_null_model}
-\title{Null-model test via ROSARIO-style randomization}
+\title{Null-model test via ROSARIO algorithm randomization}
 \usage{
-get_null_model(mat, method, nsim = 100, parallel = FALSE)
+get_null_model(mat, method, nsim = 1000, parallel = FALSE)
 }
 \arguments{
 \item{mat}{Numeric matrix (rows = biological identities, columns = ordered time intervals).}
@@ -20,7 +20,7 @@ using \code{\link[furrr:future_map]{furrr::future_map_dfr()}} with a \code{multi
 \value{
 A list with components:
 \describe{
-\item{observed_niche_overlap}{Mean pairwise overlap for \code{mat}.}
+\item{observed_niche_overlap}{Mean from all possible pairwise comparisons among biological identities for \code{mat}.}
 \item{p_value}{A one-sample \code{t.test} object comparing null means to the
 observed value (mu = observed).}
 \item{null_niche_overlap}{A tibble/data.frame of simulated mean overlaps
@@ -28,7 +28,7 @@ observed value (mu = observed).}
 }
 }
 \description{
-Generates a null distribution of assemblage-wide temporal niche overlap by
+Generates a null distribution of concurrent temporal niche overlap by
 repeatedly randomizing the input matrix with \code{\link[=rosario_sample]{rosario_sample()}} and
 recomputing the mean pairwise overlap (see \code{\link[=temp_overlap]{temp_overlap()}}).
 }

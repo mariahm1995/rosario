@@ -7,17 +7,17 @@
 rosario_sample(mat)
 }
 \arguments{
-\item{mat}{Numeric matrix with species in rows and ordered time intervals in
-columns.}
+\item{mat}{Numeric matrix with biological identities in rows and ordered
+time intervals in columns.}
 }
 \value{
 A numeric matrix of the same dimension as \code{mat}, randomized row-wise.
 }
 \description{
 Randomly permutes each row by a uniform cyclic shift of its columns and,
-with probability 0.5, reverses the order (mirror image). This preserves each
-species' temporal autocorrelation and niche breadth while randomizing
-location within the cycle.
+with probability 0.5, reverses the order (mirror image). This kind of
+permutations preserves each biological identity's temporal autocorrelation
+structure and niche breadth while randomizing location within the cycle.
 }
 \examples{
 rosario_sample(ex1)
