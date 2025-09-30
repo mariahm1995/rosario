@@ -50,10 +50,3 @@ nm$p_value
 # Visualize ROSARIO patterns
 plot_rosario(ex1[1, ], cols = 5)
 ```
-
-## Learn More
-
-One vignette demonstrate the full workflow and capabilities of the
-package:
-
-- **Introduction to rosario**
