@@ -16,10 +16,12 @@ Imports:
     magrittr,
     purrr,
     furrr,
-    future
+    future,
+    rlang
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    ggplot2
 VignetteBuilder: knitr
 Depends: 
     R (>= 3.5)
