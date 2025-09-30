@@ -1,4 +1,3 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # rosario
@@ -7,14 +6,11 @@
 
 <!-- badges: end -->
 
-The `rosario` package provides tools to quantify and visualize temporal
-niche overlap using Pianka and Czekanowski indices, and to simulate null
-models with the ROSARIO algorithm (Castro-Arellano et al. 2010).
+The `rosario` package provides tools to quantify and visualize temporal niche overlap using Pianka and Czekanowski indices, and to simulate null models with the ROSARIO algorithm (Castro-Arellano et al. 2010).
 
 ## Installation
 
-You can install the development version of rosario from
-[GitHub](https://github.com/) with:
+You can install the development version of rosario from [GitHub](https://github.com/) with:
 
 ``` r
 # Install devtools if you don't have it
