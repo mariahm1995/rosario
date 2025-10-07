@@ -1,16 +1,16 @@
 Package: rosario
-Title:A Null Model Algorithm to Analyze Cyclical Data in Ecology
-Version: 0.0.0.9000
-Authors@R: 
-    person("Ángel L.", "Robles-Fernández", , "a.l.robles.fernandez@gmail.com", role = c("aut"))
-    person("Maria A.", "Hurtado-Materon", , "maria.h.m_1995@tamu.edu", role = c("aut"))
-    person("Tatiana", "Velásquez-Roa", , "yxh11@txstate.edu", role = c("aut", "ths"))
-    person("Iván", "Castro-Arellano", , "ic13@txstate.edu", role = c("cre"))
+Title: A Null Model Algorithm to Analyze Cyclical Data in Ecology
+Version: 0.1.0
+Authors@R: c(
+    person("Ángel L.", "Robles-Fernández", , "a.l.robles.fernandez@gmail.com", role = c("aut")),
+    person("Maria A.", "Hurtado-Materon", , "maria.h.m_1995@tamu.edu", role = c("aut")),
+    person("Tatiana", "Velásquez-Roa", , "yxh11@txstate.edu", role = c("aut", "ths")),
+    person("Iván", "Castro-Arellano", , "ic13@txstate.edu", role = c("cre")))
 Description: Implements a null model analysis to quantify concurrent temporal niche overlap (i.e., activity or phenology) among biological identities (e.g., individuals, populations, species) using the Rosario randomization algorithm (Castro-Arellano et al. 2010) <doi:10.1111/j.2041-210X.2010.00031.x>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: 
     broom,
     magrittr,
@@ -20,7 +20,9 @@ Imports:
     rlang
 Suggests: 
     rmarkdown,
-    ggplot2
+    ggplot2,
+    spelling
 Depends: 
-    R (>= 3.5)
+    R (>= 4.1.0)
 LazyData: true
+Language: en-US

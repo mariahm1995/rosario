@@ -1,3 +1,3 @@
-# rosario (development version)
+# rosario 0.1.0
 
 * Initial CRAN submission.
