@@ -2,23 +2,23 @@
 % Please edit documentation in R/vec_permutation.R
 \name{vec_permutation}
 \alias{vec_permutation}
-\title{Arbitrary ciclic permutation of a numeric vector}
+\title{Cyclic permutation (rotate) a numeric vector}
 \usage{
 vec_permutation(numvec, x = 1)
 }
 \arguments{
-\item{numvec}{A numeric vector. This function is designed to deal with
-the randomization
-time series of animal activity}
+\item{numvec}{Numeric vector representing an ordered cycle.}
 
-\item{x}{The new starting position of the permutation}
+\item{x}{Integer (1-based) index of the new starting position.}
 }
 \value{
-A permuted vector
+A numeric vector of the same length as \code{numvec}, rotated so that
+\code{numvec[x]} is first.
 }
 \description{
-Arbitrary ciclic permutation of a numeric vector
+Returns a cyclic shift of \code{numvec} so that position \code{x} becomes the first
+element and the order wraps around the end.
 }
 \examples{
-vec_permutation(1:24, 4)
+vec_permutation(1:6, 4)  # 4 5 6 1 2 3
 }

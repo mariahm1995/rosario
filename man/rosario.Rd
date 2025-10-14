@@ -2,19 +2,27 @@
 % Please edit documentation in R/rosario.R
 \name{rosario}
 \alias{rosario}
-\title{rosario}
+\title{Generate cyclic and mirrored permutations of a time series}
 \usage{
-rosario(mat)
+rosario(numvec)
 }
 \arguments{
-\item{numvec}{A numeric vector with activity pattern time series}
+\item{numvec}{Numeric vector representing a single biological identity'
+distributions across ordered time intervals.}
 }
 \value{
-A list with all the permutations in the time series
+A list of numeric vectors with all the permutations in the time series,
+including the mirror patterns.
 }
 \description{
-rosario
+For a numeric vector, creates the set of cyclic shifts and their
+mirror images (reverse order), preserving shape but changing location along
+the cycle. The suite of vectors and mirrors represent a complete set
+of possible distributions.
 }
 \examples{
 rosario(c(40, 25, 18, 10, 5, 2))
+}
+\seealso{
+\code{\link[=vec_permutation]{vec_permutation()}}, \code{\link[=rosario_sample]{rosario_sample()}}
 }

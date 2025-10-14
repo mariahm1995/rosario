@@ -2,29 +2,52 @@
 % Please edit documentation in R/get_null_model.R
 \name{get_null_model}
 \alias{get_null_model}
-\title{Niche overlap null model. Resampling through rosario algorithm
-to preserve the temporal autocorrelation.}
+\title{Null-model test via ROSARIO algorithm randomization}
 \usage{
 get_null_model(mat, method, nsim = 100, parallel = FALSE)
 }
 \arguments{
-\item{mat}{A matrix with species per time columns.}
+\item{mat}{Numeric matrix (rows = biological identities, columns = ordered time intervals).}
 
-\item{method}{A measure of temporal niche overlap between pairs of species}
+\item{method}{Character string naming the overlap index to use:
+\code{"pianka"} or \code{"czekanowski"}.}
 
-\item{nsim}{The number of simulations}
+\item{nsim}{Integer number of randomizations to run (default \code{100}).}
 
-\item{parallel}{Logical. Do the resampling on parallel}
+\item{parallel}{Logical. If \code{TRUE}, randomizations are executed in parallel
+using \code{\link[furrr:future_map]{furrr::future_map_dfr()}} with a \code{multisession} plan set internally.}
 }
 \value{
-A matrix with pairwise overlaping temporal resource use.
+A list with components:
+\describe{
+\item{observed_niche_overlap}{Mean from all possible pairwise comparisons among biological identities for \code{mat}.}
+\item{p_value}{A one-sample \code{t.test} object comparing null means to the
+observed value (mu = observed).}
+\item{null_niche_overlap}{A tibble/data.frame of simulated mean overlaps
+(one per randomization).}
+}
 }
 \description{
-Niche overlap null model. Resampling through rosario algorithm
-to preserve the temporal autocorrelation.
+Generates a null distribution of concurrent temporal niche overlap by
+repeatedly randomizing the input matrix with \code{\link[=rosario_sample]{rosario_sample()}} and
+recomputing the mean pairwise overlap (see \code{\link[=temp_overlap]{temp_overlap()}}).
+}
+\details{
+For \code{"czekanowski"}, rows are rescaled to proportions internally to
+satisfy the index's assumptions. Randomization preserves each row's
+temporal autocorrelation by cyclically shifting (and optionally mirroring)
+its profile; see \code{\link[=rosario_sample]{rosario_sample()}}.
+
+When \code{parallel = TRUE}, the function calls \code{future::plan(multisession)}
+internally so that randomizations are distributed across available local
+sessions. This means the function overrides any previously set \code{future} plan.
+If you need custom control over parallelization (e.g. cluster backends),
+run the non-parallel mode (\code{parallel = FALSE}) and handle parallelism
+externally.
 }
 \examples{
-temp_overlap(ex1, method = "pianka")
-
-get_null_model(ex1, method = "pianka", nsim = 10)
+get_null_model(ex1, method = "pianka", nsim = 10, parallel = FALSE)
+}
+\seealso{
+\code{\link[=temp_overlap]{temp_overlap()}}, \code{\link[=rosario_sample]{rosario_sample()}}, \code{\link[=temp_overlap_matrix]{temp_overlap_matrix()}}
 }

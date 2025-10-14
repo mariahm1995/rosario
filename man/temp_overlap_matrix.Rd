@@ -2,23 +2,31 @@
 % Please edit documentation in R/temp_overlap_matrix.R
 \name{temp_overlap_matrix}
 \alias{temp_overlap_matrix}
-\title{Assemblage-wide temporal niche segregation}
+\title{Pairwise temporal niche-overlap matrix}
 \usage{
 temp_overlap_matrix(mat, method = c("pianka", "czekanowski"))
 }
 \arguments{
-\item{mat}{A matrix with species per time columns.}
+\item{mat}{Numeric matrix (rows = biological identities, columns = ordered time intervals).}
 
-\item{method}{A measure of temporal niche overlap between pairs of species}
+\item{method}{Overlap index to use: \code{"pianka"} or \code{"czekanowski"}.}
 }
 \value{
-A matrix with pairwise overlaping temporal resource use.
+A square symmetric matrix of overlap values with row/colnames copied
+from \code{mat}. The first class of the object is set to the method name.
 }
 \description{
-Assemblage-wide temporal niche segregation
+Computes all pairwise overlaps among rows (biological identities) using the chosen index.
+}
+\details{
+For Czekanowski, supply a \strong{row-rescaled} matrix (see
+\code{\link[=rescale_matrix]{rescale_matrix()}}) or use \code{\link[=temp_overlap]{temp_overlap()}}, which handles rescaling.
 }
 \examples{
 temp_overlap_matrix(ex1, method = "pianka")
 ex1_rescale <- rescale_matrix(ex1)
 temp_overlap_matrix(ex1_rescale, method = "czekanowski")
+}
+\seealso{
+\code{\link[=temp_overlap]{temp_overlap()}}, \code{\link[=rescale_matrix]{rescale_matrix()}}
 }

@@ -1,15 +1,17 @@
-
-#' Arbitrary ciclic permutation of a numeric vector
+#' Cyclic permutation (rotate) a numeric vector
 #'
-#' @param numvec A numeric vector. This function is designed to deal with
-#' the randomization
-#' time series of animal activity
-#' @param x The new starting position of the permutation
+#' Returns a cyclic shift of `numvec` so that position `x` becomes the first
+#' element and the order wraps around the end.
 #'
-#' @return A permuted vector
+#' @param numvec Numeric vector representing an ordered cycle.
+#' @param x Integer (1-based) index of the new starting position.
+#'
+#' @return A numeric vector of the same length as `numvec`, rotated so that
+#'   `numvec[x]` is first.
+#' @examples
+#' vec_permutation(1:6, 4)  # 4 5 6 1 2 3
 #' @export
 #'
-#' @examples vec_permutation(1:24, 4)
 vec_permutation <- function(numvec, x = 1){
   module_logic <- as.logical((1:length(numvec) %/% x) )
   module_sequence <- c(which(module_logic), which(!module_logic))

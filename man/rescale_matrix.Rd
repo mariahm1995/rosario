@@ -2,21 +2,23 @@
 % Please edit documentation in R/rescale_matrix.R
 \name{rescale_matrix}
 \alias{rescale_matrix}
-\title{Rescale matrix
-This function  rescale the rows of a matrix dividing each element of a row over the sum of the row.}
+\title{Row-wise rescaling of a matrix to relative frequencies}
 \usage{
 rescale_matrix(m)
 }
 \arguments{
-\item{m}{A numeric matrix to rescale}
+\item{m}{Numeric matrix; rows are biological identities, columns are time
+bins (i.e., time resources).}
 }
 \value{
-A rescaled matrix
+A numeric matrix of the same dimension with each row summing to 1.
+Rows with a zero sum are left unchanged (resulting in \code{NaN} if present).
 }
 \description{
-Rescale matrix
-This function  rescale the rows of a matrix dividing each element of a row over the sum of the row.
+Divides each row by its row sum so that every row sums to 1 (leaving
+dimnames intact).
 }
 \examples{
 ex1_rescale <- rescale_matrix(ex1)
+rowSums(ex1_rescale)
 }
