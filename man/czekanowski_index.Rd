@@ -2,26 +2,36 @@
 % Please edit documentation in R/czekanowski_index.R
 \name{czekanowski_index}
 \alias{czekanowski_index}
-\title{Czekanowski index for overlap in resource use between two species.}
+\title{Czekanowski overlap index}
 \usage{
 czekanowski_index(p, q)
 }
 \arguments{
-\item{p}{A vector of relative frequence of activity pattern.}
+\item{p}{Numeric vector of non-negative relative frequencies (typically
+sums to 1) describing the first biological identity data (e.g. activity,
+population size, etc) across ordered time bins. Standardized use of time
+intervals through the manual.}
 
-\item{q}{A vector of relative frequence of activity pattern.}
+\item{q}{Numeric vector of non-negative relative frequencies (same length
+as \code{p}) for the second biological identity across ordered time bins.}
 }
 \value{
-An index value of overlap resource use.
+A single numeric value in [0, 1] where 0 indicates no overlap and
+1 indicates identical profiles.
 }
 \description{
-Czekanowski index for overlap in resource use between two species.
+Computes the Czekanowski index of overlap between two relative-frequency
+activity profiles \eqn{p} and \eqn{q}:
+\deqn{1 - \tfrac{1}{2}\sum_i |p_i - q_i|.}
+}
+\details{
+Inputs should be on a \emph{comparable scale}; if your data are raw
+counts, rescale rows to proportions first (see \code{\link[=rescale_matrix]{rescale_matrix()}}).
 }
 \examples{
-n = 6
-p = ifelse(runif(n) > 0.5, 1, 0)
-p <- p/sum(p)
-q = ifelse(runif(n) > 0.5, 1, 0)
-q <- q/sum(q)
+set.seed(1)
+n <- 6
+p <- rmultinom(1, 20, rep(1, n))[,1]; p <- p / sum(p)
+q <- rmultinom(1, 20, rep(1, n))[,1]; q <- q / sum(q)
 czekanowski_index(p, q)
 }

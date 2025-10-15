@@ -3,18 +3,27 @@
 \docType{data}
 \name{ex1}
 \alias{ex1}
-\title{rosario example 1}
+\title{Example temporal activity dataset}
 \format{
-## `ex1`
-A matrix with 12 temporal bins (columns) and 5 species:
+A numeric matrix with 5 rows (biological identities) and 12 columns
+(time intervals):
+\describe{
+\item{Rows}{Biological identities (\code{bioID1} … \code{bioID5})}
+\item{Columns}{Time intervals (\code{INT1} … \code{INT12})}
+\item{Values}{Counts of activity per identity × interval}
 }
-\source{
-<https://>
 }
 \usage{
 ex1
 }
 \description{
-A matrix with temporal ocupancy of 5 species.
+An example dataset of 5 biological identities across 12 time intervals. Values
+represent counts of activity events (e.g., detections or captures) per
+interval. This dataset is provided for examples and vignettes.
+}
+\examples{
+ex1
+rowSums(ex1)   # total activity per biological identity
+colSums(ex1)   # total activity per time interval
 }
 \keyword{datasets}

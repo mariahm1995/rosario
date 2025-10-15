@@ -1,16 +1,21 @@
-#' Assemblage-wide temporal niche segregation
+#' Pairwise temporal niche-overlap matrix
 #'
-#' @param mat A matrix with species per time columns.
-#' @param method A measure of temporal niche overlap between pairs of species
+#' Computes all pairwise overlaps among rows (biological identities) using the chosen index.
 #'
-#' @return A matrix with pairwise overlaping temporal resource use.
-#' @export
+#' @param mat Numeric matrix (rows = biological identities, columns = ordered time intervals).
+#' @param method Overlap index to use: `"pianka"` or `"czekanowski"`.
 #'
+#' @return A square symmetric matrix of overlap values with row/colnames copied
+#'   from `mat`. The first class of the object is set to the method name.
+#' @details For Czekanowski, supply a **row-rescaled** matrix (see
+#'   [rescale_matrix()]) or use [temp_overlap()], which handles rescaling.
 #' @examples
 #' temp_overlap_matrix(ex1, method = "pianka")
 #' ex1_rescale <- rescale_matrix(ex1)
 #' temp_overlap_matrix(ex1_rescale, method = "czekanowski")
-
+#' @seealso [temp_overlap()], [rescale_matrix()]
+#' @export
+#'
 temp_overlap_matrix <- function(mat, method = c("pianka", "czekanowski")) {
 
 

@@ -1,11 +1,20 @@
-#' rosario
+#' Generate cyclic and mirrored permutations of a time series
 #'
-#' @param numvec A numeric vector with activity pattern time series
+#' For a numeric vector, creates the set of cyclic shifts and their
+#' mirror images (reverse order), preserving shape but changing location along
+#' the cycle. The suite of vectors and mirrors represent a complete set
+#'  of possible distributions.
 #'
-#' @return A list with all the permutations in the time series
+#' @param numvec Numeric vector representing a single biological identity'
+#' distributions across ordered time intervals.
+#'
+#' @return A list of numeric vectors with all the permutations in the time series,
+#' including the mirror patterns.
+#' @examples
+#' rosario(c(40, 25, 18, 10, 5, 2))
+#' @seealso [vec_permutation()], [rosario_sample()]
 #' @export
-#'
-#' @examples rosario(c(40, 25, 18, 10, 5, 2))
+
 rosario <- function(numvec){
   vecLength <- length(numvec)
   veclist <- purrr::map(vecLength:2, function(x){vec_permutation(numvec, x)})
@@ -13,21 +22,22 @@ rosario <- function(numvec){
     purrr::map(function(x) c(x, rev(x)))
 }
 
-#' Random sampling a niche overlap matrix preserving the
-#' autocorrelation temporal structure.
-#' Each row of the matrix is permuted starting in a random
-#' column. The result also could be reversed with a
-#' binomial probability of 0.5.
-
+#' ROSARIO randomization of an assemblage matrix
 #'
-#' @param mat A matrix with species (rows) and temporal intervals (columns)
-#' to be sampled preserving the temporal autocorrelation of the intervals
+#' Randomly permutes each row by a uniform cyclic shift of its columns and,
+#' with probability 0.5, reverses the order (mirror image). This kind of
+#' permutations preserves each biological identity's temporal autocorrelation
+#' structure and niche breadth while randomizing location within the cycle.
 #'
-#' @return A random matrix with same number of species and temporal intervals
+#' @param mat Numeric matrix with biological identities in rows and ordered
+#' time intervals in columns.
+#'
+#' @return A numeric matrix of the same dimension as `mat`, randomized row-wise.
+#' @examples
+#' rosario_sample(ex1)
+#' @seealso [rosario()], [vec_permutation()]
 #' @export
 #'
-#' @examples rosario_sample(ex1)
-
 rosario_sample <- function(mat){
   res <-  matrix(data = 0, nrow = nrow(mat), ncol = ncol(mat) )
   ncol_mat <- ncol(mat)

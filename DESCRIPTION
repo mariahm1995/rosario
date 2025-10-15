@@ -1,20 +1,29 @@
 Package: rosario
-Type: Package
-Title: What the Package Does (Title Case)
+Title: A Null Model Algorithm to Analyze Cyclical Data in Ecology
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Authors@R: c(
+    person("Ángel L.", "Robles-Fernández", , "a.l.robles.fernandez@gmail.com", role = c("aut")),
+    person("Maria A.", "Hurtado-Materon", , "maria.h.m_1995@tamu.edu", role = c("aut")),
+    person("Tatiana", "Velásquez-Roa", , "yxh11@txstate.edu", role = c("aut", "ths")),
+    person("Iván", "Castro-Arellano", , "ic13@txstate.edu", role = c("cre")))
+Description: Implements a null model analysis to quantify concurrent temporal niche overlap (i.e., activity or phenology) among biological identities (e.g., individuals, populations, species) using the Rosario randomization algorithm (Castro-Arellano et al. 2010) <doi:10.1111/j.2041-210X.2010.00031.x>.
 License: GPL (>= 3)
 Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
 Imports: 
     broom,
     magrittr,
-    mcreplicate,
-    purrr
+    purrr,
+    furrr,
+    future,
+    rlang
 URL: https://alrobles.github.io/rosario/
+Suggests: 
+    rmarkdown,
+    ggplot2,
+    spelling
 Depends: 
-    R (>= 2.10)
+    R (>= 4.1.0)
+LazyData: true
+Language: en-US

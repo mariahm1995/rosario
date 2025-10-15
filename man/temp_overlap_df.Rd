@@ -2,18 +2,20 @@
 % Please edit documentation in R/temp_overlap_df.R
 \name{temp_overlap_df}
 \alias{temp_overlap_df}
-\title{Convert a square tempral overlapping matrix to a pairwise distance dataframe}
+\title{Convert a square overlap matrix to a tidy pairwise data frame}
 \usage{
 temp_overlap_df(mat)
 }
 \arguments{
-\item{mat}{A pairwise  square matrix of temporal niche overlapping of species}
+\item{mat}{Square numeric matrix (typically from \code{\link[=temp_overlap_matrix]{temp_overlap_matrix()}}).}
 }
 \value{
-A data.frame if the distance between species
+A data frame with columns \code{item1}, \code{item2}, and \code{distance}
+(terminology follows \code{\link[stats:dist]{stats::as.dist()}}).
 }
 \description{
-Convert a square tempral overlapping matrix to a pairwise distance dataframe
+Tidies a symmetric overlap (or distance) matrix into a
+three-column tibble/data frame with pairs and values.
 }
 \examples{
 d <- temp_overlap_matrix(ex1)

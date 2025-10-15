@@ -2,28 +2,26 @@
 % Please edit documentation in R/rosario.R
 \name{rosario_sample}
 \alias{rosario_sample}
-\title{Random sampling a niche overlap matrix preserving the
-autocorrelation temporal structure.
-Each row of the matrix is permuted starting in a random
-column. The result also could be reversed with a
-binomial probability of 0.5.}
+\title{ROSARIO randomization of an assemblage matrix}
 \usage{
 rosario_sample(mat)
 }
 \arguments{
-\item{mat}{A matrix with species (rows) and temporal intervals (columns)
-to be sampled preserving the temporal autocorrelation of the intervals}
+\item{mat}{Numeric matrix with biological identities in rows and ordered
+time intervals in columns.}
 }
 \value{
-A random matrix with same number of species and temporal intervals
+A numeric matrix of the same dimension as \code{mat}, randomized row-wise.
 }
 \description{
-Random sampling a niche overlap matrix preserving the
-autocorrelation temporal structure.
-Each row of the matrix is permuted starting in a random
-column. The result also could be reversed with a
-binomial probability of 0.5.
+Randomly permutes each row by a uniform cyclic shift of its columns and,
+with probability 0.5, reverses the order (mirror image). This kind of
+permutations preserves each biological identity's temporal autocorrelation
+structure and niche breadth while randomizing location within the cycle.
 }
 \examples{
 rosario_sample(ex1)
+}
+\seealso{
+\code{\link[=rosario]{rosario()}}, \code{\link[=vec_permutation]{vec_permutation()}}
 }
