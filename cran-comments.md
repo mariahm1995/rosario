@@ -1,6 +1,11 @@
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
+
+
+* NOTE: CRAN incoming feasibility indicates a maintainer change.
+  - New maintainer: Tatiana Velásquez-Roa <yxh11@txstate.edu>
+  - Previous maintainer: Iván Castro-Arellano <ic13@txstate.edu>
 
 ## Comments
 
