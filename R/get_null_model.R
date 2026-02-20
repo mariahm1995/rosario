@@ -5,6 +5,10 @@
 #' recomputing the mean pairwise overlap (see [temp_overlap()]).
 #'
 #' @param mat Numeric matrix (rows = biological identities, columns = ordered time intervals).
+#'  Time intervals are assumed to be circular (e.g., hours of the day, months of the year),
+#'  so the last interval is treated as adjacent to the first. Biological identities can be
+#'  individuals, populations, species or communities.
+#'
 #' @param method Character string naming the overlap index to use:
 #'   `"pianka"` or `"czekanowski"`.
 #' @param nsim Integer number of randomizations to run (default `100`).

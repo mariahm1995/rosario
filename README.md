@@ -1,3 +1,4 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # rosario
@@ -6,18 +7,21 @@
 
 <!-- badges: end -->
 
-The `rosario` package provides tools to quantify and visualize temporal niche overlap using Pianka and Czekanowski indices, and to simulate null models with the ROSARIO algorithm (Castro-Arellano et al. 2010).
+The `rosario` package provides tools to quantify and visualize temporal
+niche overlap using Pianka and Czekanowski indices, and to simulate null
+models with the ROSARIO algorithm (Castro-Arellano et al. 2010).
 
 ## Installation
 
-You can install the development version of rosario from [GitHub](https://github.com/) with:
+You can install the development version of rosario from
+[GitHub](https://github.com/) with:
 
 ``` r
 # Install devtools if you don't have it
 install.packages("devtools")
 
-# Install commecometrics from GitHub
-devtools::install_github("mariahm1995/rosario")
+# Install rosario from GitHub
+devtools::install_github("alrobles/rosario")
 ```
 
 You can also get the official release version from CRAN
@@ -26,23 +30,20 @@ You can also get the official release version from CRAN
 install.packages("rosario")
 ```
 
-## Example
+## Learn More
 
-This is a basic example which shows you how to solve a common problem:
+Two vignettes demonstrate the full workflow and capabilities of the
+package:
+
+- **Introduction to rosario**  
+  Overview of `rosario` workflow.
+
+- **Real-world example**  
+  Demonstration of `rosario` workflow with a real-world dataset.
+
+You can also access them from within R:
 
 ``` r
-library(rosario)
-
-# Example data
-ex1
-
-# Assemblage-wide overlap
-temp_overlap(ex1, method = "pianka")
-
-# Null model test
-nm <- get_null_model(ex1, method = "pianka", nsim = 200, parallel = FALSE)
-nm$p_value
-
-# Visualize ROSARIO patterns
-plot_rosario(ex1[1, ], cols = 5)
+vignette("introduction_to_rosario")
+vignette("real_world_example")
 ```

@@ -6,7 +6,10 @@
 #'  of possible distributions.
 #'
 #' @param numvec Numeric vector representing a single biological identity'
-#' distributions across ordered time intervals.
+#' distributions across ordered time intervals. Time intervals are assumed to be
+#' circular (e.g., hours of the day, months of the year), so the last interval
+#'  is treated as adjacent to the first. Biological identities can be
+#'  individuals, populations, species or communities.
 #'
 #' @return A list of numeric vectors with all the permutations in the time series,
 #' including the mirror patterns.

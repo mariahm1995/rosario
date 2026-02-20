@@ -17,73 +17,42 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This R package implements two common measures of overlap in resource use for communities. We implement the Pianka (Pianka 1973) and Czekanowski indices (Feinsinger, Spears, & Poole 1981).
-
-
-We implement the Pianka's index of overlap as:
-
-$$
-\alpha_{j, k} = \frac{ \sum_{i = 1}^{n}p_{ij}p_{ik} }{\sqrt{} \sum_{i = 1}^{n}p_{ij}^2 * \sum_{i = 1}^{n} p_{ik}^2 }
-$$
-As well as the Czekanowski index of overlap.
-$$
-\alpha_{j, k} = 1 -\frac{1}{2}\Big(\sum_{i = 1}^{n} |p_{ij} - p_{ik}| \Big)
-$$
-
-
+The `rosario` package provides tools to quantify and visualize temporal niche overlap using Pianka and Czekanowski indices, and to simulate null models with the ROSARIO algorithm (Castro-Arellano et al. 2010).
 
 ## Installation
 
-You can install the development version of rosario hosted in github:
+You can install the development version of rosario from [GitHub](https://github.com/) with:
 
 ``` r
+# Install devtools if you don't have it
+install.packages("devtools")
+
+# Install rosario from GitHub
 devtools::install_github("alrobles/rosario")
 ```
 
-## Example
+You can also get the official release version from CRAN
 
-In this case of  use we  create a simulated community with 20 species and 300 time intervales. With a Poisson distribution.
-We rescale to get que relative frequency of time counts and
-get both distance
-
-
-```{r example}
-library(rosario)
-## basic example code
-n = 200
-k = 1440
-#create random matrix
-m = matrix(rpois(n*k, 10), ncol = k)
-
-
-# rescale with sum of rows
-m <- rosario::rescale_matrix(m)
-
-nm <- rosario::get_null_model(m, "pianka")
-# load rosario R package
-library(rosario)
-
-m_overlap <- temp_overlap_matrix(m, method = "pianka")
-m_overlap_df <- temp_overlap_df(m_overlap)
-
-# measure the overlap matrix with Pianka's method
-overlap_pianka <- temp_overlap(m, method = "pianka")
-
-# measure the overlap matrix with Czekanowski method
-overlap_czekanowski <- temp_overlap(m, method = "czekanowski")
+``` r
+install.packages("rosario")
 ```
 
-We can observe the first 6 rows between species:
+## Learn More
 
-```{r}
-overlap_pianka
-```
+Two vignettes demonstrate the full workflow and capabilities of the
+package:
 
+- **Introduction to rosario**  
+  Overview of `rosario` workflow.
 
-<!-- And for the second example: -->
+- **Real-world example**  
+  Demonstration of `rosario` workflow with a real-world dataset.
 
-<!-- ```{r} -->
-<!-- overlap_czekanowski[1:6, 1:6] -->
+You can also access them from within R:
+
+``` r
+vignette("introduction_to_rosario")
+vignette("real_world_example")
 ```
 
 
